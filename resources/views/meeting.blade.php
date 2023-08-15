@@ -46,7 +46,7 @@ data-bs-backdrop="static" aria-hidden="true">
                 <label for="company_name">Contact Person ID</label>
 
                 <select name="contact_person_id" class="form-select mb-3" aria-label="Default select example">
-                    <option selected=""> select Contact Person ID</option>
+                    <option selected=""> Select Contact Person ID</option>
                     @foreach ($contact as $item)
                         <option value="{{ $item->id }}">{{ $item->contact_name }}</option>
                     @endforeach
@@ -55,27 +55,27 @@ data-bs-backdrop="static" aria-hidden="true">
 
             <div class="my-2">
                 <label for="meeting_title">Meeting title</label>
-                <input type="text" name="meeting_title" class="form-control" placeholder="Contact Name" required>
+                <input type="text" name="meeting_title" class="form-control" placeholder="Meeting title" required>
             </div>
 
             <div class="my-2">
                 <label for="meeting_purpose">Purpose</label>
-                <input type="text" name="meeting_purpose" class="form-control" placeholder="Contact Designation" required>
+                <input type="text" name="meeting_purpose" class="form-control" placeholder="Purpose" required>
             </div>
 
             <div class="my-2">
                 <label for="meeting_discussion">Discussion</label>
-                <input type="text" name="meeting_discussion" class="form-control" placeholder="Phone" required>
+                <input type="text" name="meeting_discussion" class="form-control" placeholder="Discussion" required>
             </div>
 
             <div class="my-2">
                 <label for="meeting_result">Result</label>
-                <input type="enail" name="meeting_result" class="form-control" placeholder="Contact E-mail" required>
+                <input type="enail" name="meeting_result" class="form-control" placeholder="Result" required>
             </div>
 
             <div class="my-2">
                 <label for="next_meeting">Next meeting date time</label>
-                <input type="datetime-local" name="next_meeting" class="form-control" placeholder="Contact Whatsapp" required>
+                <input type="datetime-local" name="next_meeting" class="form-control" placeholder="Next meeting date time" required>
             </div>
 
       </div>
@@ -108,8 +108,8 @@ data-bs-backdrop="static" aria-hidden="true">
         <div class="my-2">
           <label for="company_name">Contact Person ID</label>
 
-          <select name="contact_person_id" class="form-select mb-3" aria-label="Default select example">
-              <option selected=""> select Contact Person ID</option>
+          <select name="contact_person_id" id="contact_person_id" class="form-select mb-3" aria-label="Default select example">
+              <option selected=""> Select Contact Person ID</option>
               @foreach ($contact as $item)
                   <option value="{{ $item->id }}">{{ $item->contact_name }}</option>
               @endforeach
@@ -118,27 +118,27 @@ data-bs-backdrop="static" aria-hidden="true">
 
       <div class="my-2">
           <label for="meeting_title">Meeting title</label>
-          <input type="text" name="meeting_title" class="form-control" placeholder="Contact Name" required>
+          <input type="text" name="meeting_title" id="meeting_title" class="form-control" placeholder="Meeting title" required>
       </div>
 
       <div class="my-2">
           <label for="meeting_purpose">Purpose</label>
-          <input type="text" name="meeting_purpose" class="form-control" placeholder="Contact Designation" required>
+          <input type="text" name="meeting_purpose" id="meeting_purpose" class="form-control" placeholder="Purpose" required>
       </div>
 
       <div class="my-2">
           <label for="meeting_discussion">Discussion</label>
-          <input type="text" name="meeting_discussion" class="form-control" placeholder="Phone" required>
+          <input type="text" name="meeting_discussion" id="meeting_discussion" class="form-control" placeholder="Discussion" required>
       </div>
 
       <div class="my-2">
           <label for="meeting_result">Result</label>
-          <input type="enail" name="meeting_result" class="form-control" placeholder="Contact E-mail" required>
+          <input type="enail" name="meeting_result" id="meeting_result" class="form-control" placeholder="Result" required>
       </div>
 
       <div class="my-2">
         <label for="next_meeting">Next meeting date time</label>
-        <input type="datetime-local" name="next_meeting" class="form-control" placeholder="Contact Whatsapp" required>
+        <input type="datetime-local" name="next_meeting" id="next_meeting" class="form-control" placeholder="Next meeting date time" required>
     </div>
 
       </div>

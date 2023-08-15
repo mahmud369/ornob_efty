@@ -9,7 +9,8 @@ class Meeting extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
     public function contact(){
-        return $this->belongsTo(Contact::class,'contact_id','id');
+        return $this->belongsTo(Contact::class,'contact_person_id','id');
     }
 }

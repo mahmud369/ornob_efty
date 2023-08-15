@@ -15,7 +15,14 @@ class MeetingController extends Controller
 
     // handle insert a new employee ajax request ----------------------------------------------------------
 	public function store(Request $request) {
-		$empData = ['contact_person_id' => $request->contact_person_id, 'meeting_title' => $request->meeting_title, 'meeting_purpose' => $request->meeting_purpose, 'meeting_discussion' => $request->meeting_discussion, 'meeting_result' => $request->meeting_result, 'next_meeting' => $request->format('Y-m-d\TH:i:s')]; // 'avatar' => $fileName
+		$empData = [
+			'contact_person_id' => $request->contact_person_id,
+			'meeting_title' => $request->meeting_title,
+			'meeting_purpose' => $request->meeting_purpose,
+			'meeting_discussion' => $request->meeting_discussion,
+			'meeting_result' => $request->meeting_result,
+			'next_meeting' => $request->next_meeting
+		]; // 'avatar' => $fileName
 		Meeting::create($empData);
 		return response()->json([
 			'status' => 200,
@@ -71,9 +78,8 @@ class MeetingController extends Controller
 	// handle edit an employee ajax request
 	public function edit(Request $request) {
 		$id = $request->id;
-        $company = Contact::orderBy('contact_name','ASC')->latest()->get();
-		$emp = Meeting::find($id);
-		return response()->json($emp,$company);
+		$meeting = Meeting::find($id)->toArray();
+		return response()->json($meeting);
 	}
 
 
