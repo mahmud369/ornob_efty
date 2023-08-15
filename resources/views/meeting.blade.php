@@ -8,7 +8,7 @@
     <link rel='stylesheet'
       href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
-    <title>Laravel Ajax Crud</title>    
+    <title>Laravel Ajax Crud</title>
     <style>
       .nav-wrap{ text-align: center; padding-top:20px }
       .nav-wrap ul {
@@ -43,34 +43,41 @@ data-bs-backdrop="static" aria-hidden="true">
       <div class="modal-body p-4 bg-light">
 
             <div class="my-2">
-                <label for="company_name">Company Name</label>
-                <input type="text" name="company_name" class="form-control" placeholder="Company Name" required>
+                <label for="company_name">Contact Person ID</label>
+
+                <select name="contact_person_id" class="form-select mb-3" aria-label="Default select example">
+                    <option selected=""> select Contact Person ID</option>
+                    @foreach ($contact as $item)
+                        <option value="{{ $item->id }}">{{ $item->contact_name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="my-2">
-                <label for="company_address">Company Address</label>
-                <input type="text" name="company_address" class="form-control" placeholder="Company Address" required>
+                <label for="meeting_title">Meeting title</label>
+                <input type="text" name="meeting_title" class="form-control" placeholder="Contact Name" required>
             </div>
 
             <div class="my-2">
-                <label for="company_official_email">E-mail</label>
-                <input type="email" name="company_official_email" class="form-control" placeholder="company_official_email" required>
+                <label for="meeting_purpose">Purpose</label>
+                <input type="text" name="meeting_purpose" class="form-control" placeholder="Contact Designation" required>
             </div>
 
             <div class="my-2">
-                <label for="company_number">Phone</label>
-                <input type="tel" name="company_number" class="form-control" placeholder="Phone" required>
+                <label for="meeting_discussion">Discussion</label>
+                <input type="text" name="meeting_discussion" class="form-control" placeholder="Phone" required>
             </div>
 
             <div class="my-2">
-                <label for="company_web_addr">Post</label>
-                <input type="text" name="company_web_addr" class="form-control" placeholder="company_web_addr" required>
+                <label for="meeting_result">Result</label>
+                <input type="enail" name="meeting_result" class="form-control" placeholder="Contact E-mail" required>
             </div>
 
-            {{-- <div class="my-2">
-                <label for="avatar">Select Avatar</label>
-                <input type="file" name="avatar" class="form-control" required>
-            </div> --}}
+            <div class="my-2">
+                <label for="next_meeting">Next meeting date time</label>
+                <input type="datetime-local" name="next_meeting" class="form-control" placeholder="Contact Whatsapp" required>
+            </div>
+
       </div>
 
       <div class="modal-footer">
@@ -99,37 +106,41 @@ data-bs-backdrop="static" aria-hidden="true">
       {{-- <input type="hidden" name="emp_avatar" id="emp_avatar"> --}}
       <div class="modal-body p-4 bg-light">
         <div class="my-2">
-            <label for="company_name">Company Name</label>
-            <input type="text" name="company_name" id="company_name" class="form-control" placeholder="Company Name" required>
-        </div>
+          <label for="company_name">Contact Person ID</label>
 
-        <div class="my-2">
-            <label for="company_address">Company Address</label>
-            <input type="text" name="company_address" id="company_address" class="form-control" placeholder="Company Address" required>
-        </div>
+          <select name="contact_person_id" class="form-select mb-3" aria-label="Default select example">
+              <option selected=""> select Contact Person ID</option>
+              @foreach ($contact as $item)
+                  <option value="{{ $item->id }}">{{ $item->contact_name }}</option>
+              @endforeach
+          </select>
+      </div>
 
-        <div class="my-2">
-            <label for="company_official_email">E-mail</label>
-            <input type="email" name="company_official_email" id="company_official_email" class="form-control" placeholder="company_official_email" required>
-        </div>
+      <div class="my-2">
+          <label for="meeting_title">Meeting title</label>
+          <input type="text" name="meeting_title" class="form-control" placeholder="Contact Name" required>
+      </div>
 
-        <div class="my-2">
-            <label for="company_number">Phone</label>
-            <input type="text" name="company_number" id="company_number" class="form-control" placeholder="Phone" required>
-        </div>
+      <div class="my-2">
+          <label for="meeting_purpose">Purpose</label>
+          <input type="text" name="meeting_purpose" class="form-control" placeholder="Contact Designation" required>
+      </div>
 
-        <div class="my-2">
-            <label for="company_web_addr">Web Address</label>
-            <input type="text" name="company_web_addr" id="company_web_addr" class="form-control" placeholder="company_web_addr" required>
-        </div>
+      <div class="my-2">
+          <label for="meeting_discussion">Discussion</label>
+          <input type="text" name="meeting_discussion" class="form-control" placeholder="Phone" required>
+      </div>
 
-        {{-- <div class="my-2">
-          <label for="avatar">Select Avatar</label>
-          <input type="file" name="avatar" class="form-control">
-        </div>
-        <div class="mt-2" id="avatar">
+      <div class="my-2">
+          <label for="meeting_result">Result</label>
+          <input type="enail" name="meeting_result" class="form-control" placeholder="Contact E-mail" required>
+      </div>
 
-        </div> --}}
+      <div class="my-2">
+        <label for="next_meeting">Next meeting date time</label>
+        <input type="datetime-local" name="next_meeting" class="form-control" placeholder="Contact Whatsapp" required>
+    </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,7 +160,7 @@ data-bs-backdrop="static" aria-hidden="true">
     <div class="col-lg-12">
       <div class="card shadow">
         <div class="card-header bg-danger d-flex justify-content-between align-items-center">
-          <h3 class="text-light">Manage Company</h3>
+          <h3 class="text-light">Manage Meeting</h3>
           <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCompanyModal"><i
               class="bi-plus-circle me-2"></i>Add New </button>
         </div>
@@ -176,7 +187,7 @@ data-bs-backdrop="static" aria-hidden="true">
 
     function fetchAllEmployees() {
     $.ajax({
-        url: '{{ route('fetchAll') }}',
+        url: '{{ route('meeting.fetchAll') }}',
         method: 'get',
         success: function(response) {
         $("#show_all_companys").html(response);
@@ -192,18 +203,19 @@ data-bs-backdrop="static" aria-hidden="true">
         e.preventDefault();
         let id = $(this).attr('id');
         $.ajax({
-          url: '{{ route('edit') }}',
+          url: '{{ route('meeting.edit') }}',
           method: 'get',
           data: {
             id: id,
             _token: '{{ csrf_token() }}'
           },
           success: function(res) {
-            $("#company_name").val(res.company_name);
-            $("#company_address").val(res.company_address);
-            $("#company_official_email").val(res.company_official_email);
-            $("#company_number").val(res.company_number);
-            $("#company_web_addr").val(res.company_web_addr);
+            $("#contact_person_id").val(res.contact_person_id);
+            $("#meeting_title").val(res.meeting_title);
+            $("#meeting_purpose").val(res.meeting_purpose);
+            $("#meeting_discussion").val(res.meeting_discussion);
+            $("#meeting_result").val(res.meeting_result);
+            $("#next_meeting").val(res.next_meeting);
             $("#emp_id").val(res.id);
           }
         });
@@ -216,7 +228,7 @@ data-bs-backdrop="static" aria-hidden="true">
         const fd = new FormData(this);
         $("#add_company_btn").text('Adding...');
         $.ajax({
-          url: '{{ route('store') }}',
+          url: '{{ route('meeting.store') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -247,7 +259,7 @@ data-bs-backdrop="static" aria-hidden="true">
         const fd = new FormData(this);
         $("#edit_company_btn").text('Updating...');
         $.ajax({
-          url: '{{ route('update') }}',
+          url: '{{ route('meeting.update') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -286,7 +298,7 @@ data-bs-backdrop="static" aria-hidden="true">
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url: '{{ route('delete') }}',
+              url: '{{ route('meeting.delete') }}',
               method: 'delete',
               data: {
                 id: id,
